@@ -79,4 +79,27 @@ def partial_update(product_id : int, product_data: ProductUpdate):
     if product_id not in product_db:
         raise HTTPException(status_code=404, detail='Product not found')
 
-    stored_product    
+    stored_product= product_db[product_id]
+
+    updated_data = stored_product.model_copy(update=product_data.dict(exclude_unset=True)) 
+    product_db[product_id] = updated_data
+
+    return {'message': 'Product partially updated', 'updated_data': updated_data}  
+
+
+# ---------------------------
+# DELETE
+# ---------------------------
+
+@app.delete('/products/{product_id}')
+def delete_product(product_id: int):
+    if product_id not in product_db:
+        raise HTTPException(status_code=404, detail='Product not found')
+    
+    del product_db[product_id]
+    return {'message': 'Product deleted successfully','id': product_id}
+
+# Root
+@app.get('/')
+def home():
+    return {'message': 'Welcome to the Product API'}
