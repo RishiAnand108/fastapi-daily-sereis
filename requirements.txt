@@ -5,3 +5,4 @@ sqlmodel
 psycopg   # or psycopg2-binary if you prefer
 python-jose[cryptography]
 passlib[bcrypt]
+multipart
