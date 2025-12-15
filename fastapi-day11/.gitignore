@@ -1,0 +1,7 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Uploaded files
+uploads/
+fastapi-day11/uploads/

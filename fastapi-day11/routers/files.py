@@ -16,7 +16,7 @@ async def upload_file(
     file: UploadFile = File(...)
 ):
     #validate file type
-    if not file.filename.endswitch((".png",".jpg",'.jpeg','.pdf')):
+    if not file.filename.endswith((".png",".jpg",'.jpeg','.pdf')):
         raise HTTPException(status_code=400, detail="Invalid file type")
     
     file_path  = os.path.join(UPLOAD_DIR, file.filename)
