@@ -1,0 +1,6 @@
+# Python cach
+__pycache__/
+.pyc
+
+# SQLite databases
+*.db
