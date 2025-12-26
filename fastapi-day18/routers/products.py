@@ -15,7 +15,6 @@ def create_product(
         name=product.name,
         category=product.category,
         price=product.price,
-
         owner_id=product.owner_id
     )
     session.add(db_product)
